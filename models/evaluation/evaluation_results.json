@@ -1,0 +1,707 @@
+{
+  "generated_at": "2026-11-16T19:39:02",
+  "model_version": "extra_trees-20261116-193902",
+  "selected_model": "extra_trees",
+  "selected_model_name": "Extra Trees",
+  "selection_rule": "Highest mean auction-grouped CV PR-AUC; models within 0.005 of the best are treated as tied and the simplest tied model is chosen.",
+  "top_cv_models": [
+    {
+      "model": "Extra Trees",
+      "cv_pr_auc_mean": 0.9984624273329107,
+      "cv_pr_auc_std": 0.00198294506800066,
+      "complexity": 3
+    },
+    {
+      "model": "Random Forest",
+      "cv_pr_auc_mean": 0.99766905895103,
+      "cv_pr_auc_std": 0.0022133543527255704,
+      "complexity": 3
+    },
+    {
+      "model": "Gradient Boosting",
+      "cv_pr_auc_mean": 0.9975194122986654,
+      "cv_pr_auc_std": 0.0038381452554312394,
+      "complexity": 4
+    },
+    {
+      "model": "HistGradientBoosting",
+      "cv_pr_auc_mean": 0.9952747538762123,
+      "cv_pr_auc_std": 0.006026776138432725,
+      "complexity": 4
+    },
+    {
+      "model": "Support Vector Machine (RBF)",
+      "cv_pr_auc_mean": 0.989037734320876,
+      "cv_pr_auc_std": 0.0025420548510740044,
+      "complexity": 4
+    },
+    {
+      "model": "Decision Tree",
+      "cv_pr_auc_mean": 0.9870096484483074,
+      "cv_pr_auc_std": 0.004658522921872503,
+      "complexity": 2
+    },
+    {
+      "model": "Logistic Regression",
+      "cv_pr_auc_mean": 0.9583207234323636,
+      "cv_pr_auc_std": 0.012428696687482138,
+      "complexity": 1
+    }
+  ],
+  "threshold": 0.5,
+  "threshold_rule": "Maximise F2 on out-of-fold training predictions subject to precision >= 0.8.",
+  "split": {
+    "train_rows": 5053,
+    "test_rows": 1268,
+    "train_shill_share": 0.1066693053631506,
+    "test_shill_share": 0.10725552050473186,
+    "train_auctions": 646,
+    "test_auctions": 161,
+    "overlap": {
+      "Record_ID": {
+        "shared_ids": 0,
+        "test_ids": 1268,
+        "test_rows_with_shared_id": 0
+      },
+      "Auction_ID": {
+        "shared_ids": 0,
+        "test_ids": 161,
+        "test_rows_with_shared_id": 0
+      },
+      "Bidder_ID": {
+        "shared_ids": 511,
+        "test_ids": 587,
+        "test_rows_with_shared_id": 1187
+      }
+    }
+  },
+  "features_used": [
+    "Bidder_Tendency",
+    "Bidding_Ratio",
+    "Successive_Outbidding",
+    "Last_Bidding",
+    "Auction_Bids",
+    "Starting_Price_Average",
+    "Early_Bidding",
+    "Winning_Ratio",
+    "Auction_Duration"
+  ],
+  "feature_decision": "All features kept: removing correlated features lowered mean CV PR-AUC by 0.0080 (> tolerance 0.005).",
+  "feature_drop_log": [
+    {
+      "dropped": "Winning_Ratio",
+      "kept": "Bidding_Ratio",
+      "correlation": 0.8046,
+      "mi_dropped": 0.108,
+      "mi_kept": 0.1753
+    },
+    {
+      "dropped": "Early_Bidding",
+      "kept": "Last_Bidding",
+      "correlation": 0.9542,
+      "mi_dropped": 0.0073,
+      "mi_kept": 0.0116
+    }
+  ],
+  "mutual_information_train": {
+    "Successive_Outbidding": 0.284,
+    "Bidding_Ratio": 0.1753,
+    "Bidder_Tendency": 0.1159,
+    "Winning_Ratio": 0.108,
+    "Last_Bidding": 0.0116,
+    "Early_Bidding": 0.0073,
+    "Auction_Duration": 0.0056,
+    "Starting_Price_Average": 0.0014,
+    "Auction_Bids": 0.0
+  },
+  "correlated_pairs_train": [
+    {
+      "feature_a": "Bidding_Ratio",
+      "feature_b": "Winning_Ratio",
+      "abs_spearman": 0.8046
+    },
+    {
+      "feature_a": "Last_Bidding",
+      "feature_b": "Early_Bidding",
+      "abs_spearman": 0.9542
+    }
+  ],
+  "feature_set_study": [
+    {
+      "feature_set": "all_features",
+      "n_features": 9,
+      "model": "Logistic Regression",
+      "pr_auc_mean": 0.9562485432819049,
+      "pr_auc_std": 0.013135137023023501,
+      "roc_auc": 0.9960037746922993,
+      "f1@0.5": 0.8901098901098901
+    },
+    {
+      "feature_set": "all_features",
+      "n_features": 9,
+      "model": "Random Forest",
+      "pr_auc_mean": 0.9976178099481198,
+      "pr_auc_std": 0.0019141116527530708,
+      "roc_auc": 0.9996226951730464,
+      "f1@0.5": 0.9761467889908257
+    },
+    {
+      "feature_set": "all_features",
+      "n_features": 9,
+      "model": "HistGradientBoosting",
+      "pr_auc_mean": 0.9948845859600202,
+      "pr_auc_std": 0.005980644343965129,
+      "roc_auc": 0.996096662373009,
+      "f1@0.5": 0.987037037037037
+    },
+    {
+      "feature_set": "reduced",
+      "n_features": 7,
+      "model": "Logistic Regression",
+      "pr_auc_mean": 0.9370670853384301,
+      "pr_auc_std": 0.01652878930368646,
+      "roc_auc": 0.9942685012942625,
+      "f1@0.5": 0.8593301435406698
+    },
+    {
+      "feature_set": "reduced",
+      "n_features": 7,
+      "model": "Random Forest",
+      "pr_auc_mean": 0.9950602422070535,
+      "pr_auc_std": 0.0024471356505799493,
+      "roc_auc": 0.9992682012588336,
+      "f1@0.5": 0.9743589743589743
+    },
+    {
+      "feature_set": "reduced",
+      "n_features": 7,
+      "model": "HistGradientBoosting",
+      "pr_auc_mean": 0.9924838901853029,
+      "pr_auc_std": 0.007167878626557032,
+      "roc_auc": 0.9958323845911667,
+      "f1@0.5": 0.9851851851851852
+    },
+    {
+      "feature_set": "ablation_without_successive_outbidding",
+      "n_features": 8,
+      "model": "Logistic Regression",
+      "pr_auc_mean": 0.7477352717407167,
+      "pr_auc_std": 0.05256973257202614,
+      "roc_auc": 0.9615510763051747,
+      "f1@0.5": 0.64576802507837
+    },
+    {
+      "feature_set": "ablation_without_successive_outbidding",
+      "n_features": 8,
+      "model": "Random Forest",
+      "pr_auc_mean": 0.7606144744054883,
+      "pr_auc_std": 0.049807454695793674,
+      "roc_auc": 0.9660738021393758,
+      "f1@0.5": 0.676829268292683
+    },
+    {
+      "feature_set": "ablation_without_successive_outbidding",
+      "n_features": 8,
+      "model": "HistGradientBoosting",
+      "pr_auc_mean": 0.7642812685973752,
+      "pr_auc_std": 0.041407893365283756,
+      "roc_auc": 0.9641009664428868,
+      "f1@0.5": 0.6919339164237124
+    }
+  ],
+  "validation_study": [
+    {
+      "model": "Logistic Regression",
+      "cv_strategy": "row",
+      "pr_auc_mean": 0.9536937689496574,
+      "pr_auc_std": 0.02499295314949065,
+      "roc_auc": 0.995936780480106,
+      "f1@0.5": 0.8941605839416058
+    },
+    {
+      "model": "Logistic Regression",
+      "cv_strategy": "auction",
+      "pr_auc_mean": 0.9562485432819049,
+      "pr_auc_std": 0.013135137023023501,
+      "roc_auc": 0.9960037746922993,
+      "f1@0.5": 0.8901098901098901
+    },
+    {
+      "model": "Logistic Regression",
+      "cv_strategy": "bidder",
+      "pr_auc_mean": 0.9522851746766294,
+      "pr_auc_std": 0.006630944606971428,
+      "roc_auc": 0.996021859019517,
+      "f1@0.5": 0.8945921173235564
+    },
+    {
+      "model": "Random Forest",
+      "cv_strategy": "row",
+      "pr_auc_mean": 0.997499308681404,
+      "pr_auc_std": 0.0009087663218906154,
+      "roc_auc": 0.9997046911566818,
+      "f1@0.5": 0.971689497716895
+    },
+    {
+      "model": "Random Forest",
+      "cv_strategy": "auction",
+      "pr_auc_mean": 0.9976178099481198,
+      "pr_auc_std": 0.0019141116527530708,
+      "roc_auc": 0.9996226951730464,
+      "f1@0.5": 0.9761467889908257
+    },
+    {
+      "model": "Random Forest",
+      "cv_strategy": "bidder",
+      "pr_auc_mean": 0.9972996651557879,
+      "pr_auc_std": 0.0020105293257162648,
+      "roc_auc": 0.9995189157952622,
+      "f1@0.5": 0.9770852428964253
+    },
+    {
+      "model": "HistGradientBoosting",
+      "cv_strategy": "row",
+      "pr_auc_mean": 0.99879038453018,
+      "pr_auc_std": 0.0009278543064712137,
+      "roc_auc": 0.9997994283708569,
+      "f1@0.5": 0.987012987012987
+    },
+    {
+      "model": "HistGradientBoosting",
+      "cv_strategy": "auction",
+      "pr_auc_mean": 0.9948845859600202,
+      "pr_auc_std": 0.005980644343965129,
+      "roc_auc": 0.996096662373009,
+      "f1@0.5": 0.987037037037037
+    },
+    {
+      "model": "HistGradientBoosting",
+      "cv_strategy": "bidder",
+      "pr_auc_mean": 0.9957264215903467,
+      "pr_auc_std": 0.0063135251891379895,
+      "roc_auc": 0.9961554364364669,
+      "f1@0.5": 0.9907235621521335
+    }
+  ],
+  "comparison": [
+    {
+      "key": "extra_trees",
+      "model": "Extra Trees",
+      "is_baseline": false,
+      "complexity": 3,
+      "cv_pr_auc_mean": 0.9984624273329107,
+      "cv_pr_auc_std": 0.00198294506800066,
+      "oof_precision": 0.9852670349907919,
+      "oof_recall": 0.9925788497217068,
+      "oof_f1": 0.988909426987061,
+      "best_params": "{\"class_weight\": \"balanced_subsample\", \"max_depth\": null, \"max_features\": 0.5, \"min_samples_leaf\": 1}",
+      "threshold": 0.5,
+      "accuracy": 0.9952681388012619,
+      "precision": 0.9850746268656716,
+      "recall": 0.9705882352941176,
+      "f1": 0.9777777777777777,
+      "f2": 0.9734513274336283,
+      "roc_auc": 0.9996394980253586,
+      "pr_auc": 0.997341874359535,
+      "brier": 0.0041150806168944965,
+      "tn": 1130,
+      "fp": 2,
+      "fn": 4,
+      "tp": 132,
+      "false_positive_rate": 0.0017667844522968198,
+      "flagged_share": 0.1056782334384858,
+      "precision@0.5": 0.9850746268656716,
+      "recall@0.5": 0.9705882352941176,
+      "f1@0.5": 0.9777777777777777,
+      "selected": true
+    },
+    {
+      "key": "rf",
+      "model": "Random Forest",
+      "is_baseline": false,
+      "complexity": 3,
+      "cv_pr_auc_mean": 0.99766905895103,
+      "cv_pr_auc_std": 0.0022133543527255704,
+      "oof_precision": 0.9588550983899821,
+      "oof_recall": 0.9944341372912802,
+      "oof_f1": 0.97632058287796,
+      "best_params": "{\"class_weight\": null, \"max_depth\": 8, \"max_features\": 0.5, \"min_samples_leaf\": 1}",
+      "threshold": 0.44,
+      "accuracy": 0.9952681388012619,
+      "precision": 0.9850746268656716,
+      "recall": 0.9705882352941176,
+      "f1": 0.9777777777777777,
+      "f2": 0.9734513274336283,
+      "roc_auc": 0.9996232591976719,
+      "pr_auc": 0.9972535374984811,
+      "brier": 0.0052422752745185895,
+      "tn": 1130,
+      "fp": 2,
+      "fn": 4,
+      "tp": 132,
+      "false_positive_rate": 0.0017667844522968198,
+      "flagged_share": 0.1056782334384858,
+      "precision@0.5": 1.0,
+      "recall@0.5": 0.9705882352941176,
+      "f1@0.5": 0.9850746268656716,
+      "selected": false
+    },
+    {
+      "key": "gb",
+      "model": "Gradient Boosting",
+      "is_baseline": false,
+      "complexity": 4,
+      "cv_pr_auc_mean": 0.9975194122986654,
+      "cv_pr_auc_std": 0.0038381452554312394,
+      "oof_precision": 0.9852941176470589,
+      "oof_recall": 0.9944341372912802,
+      "oof_f1": 0.989843028624192,
+      "best_params": "{\"learning_rate\": 0.1, \"max_depth\": 3, \"n_estimators\": 300, \"subsample\": 0.8}",
+      "threshold": 0.23,
+      "accuracy": 0.9929022082018928,
+      "precision": 0.9703703703703703,
+      "recall": 0.9632352941176471,
+      "f1": 0.966789667896679,
+      "f2": 0.9646539027982327,
+      "roc_auc": 0.9994218977343587,
+      "pr_auc": 0.995889607837283,
+      "brier": 0.0058141939711162036,
+      "tn": 1128,
+      "fp": 4,
+      "fn": 5,
+      "tp": 131,
+      "false_positive_rate": 0.0035335689045936395,
+      "flagged_share": 0.10646687697160884,
+      "precision@0.5": 0.9774436090225563,
+      "recall@0.5": 0.9558823529411765,
+      "f1@0.5": 0.966542750929368,
+      "selected": false
+    },
+    {
+      "key": "hgb",
+      "model": "HistGradientBoosting",
+      "is_baseline": false,
+      "complexity": 4,
+      "cv_pr_auc_mean": 0.9952747538762123,
+      "cv_pr_auc_std": 0.006026776138432725,
+      "oof_precision": 0.9834254143646409,
+      "oof_recall": 0.9907235621521335,
+      "oof_f1": 0.9870609981515711,
+      "best_params": "{\"class_weight\": \"balanced\", \"l2_regularization\": 0.0, \"learning_rate\": 0.1, \"max_leaf_nodes\": 15}",
+      "threshold": 0.72,
+      "accuracy": 0.9952681388012619,
+      "precision": 0.9850746268656716,
+      "recall": 0.9705882352941176,
+      "f1": 0.9777777777777777,
+      "f2": 0.9734513274336283,
+      "roc_auc": 0.9992919871128665,
+      "pr_auc": 0.99555361301571,
+      "brier": 0.004257424858632481,
+      "tn": 1130,
+      "fp": 2,
+      "fn": 4,
+      "tp": 132,
+      "false_positive_rate": 0.0017667844522968198,
+      "flagged_share": 0.1056782334384858,
+      "precision@0.5": 0.9708029197080292,
+      "recall@0.5": 0.9779411764705882,
+      "f1@0.5": 0.9743589743589743,
+      "selected": false
+    },
+    {
+      "key": "svm",
+      "model": "Support Vector Machine (RBF)",
+      "is_baseline": false,
+      "complexity": 4,
+      "cv_pr_auc_mean": 0.989037734320876,
+      "cv_pr_auc_std": 0.0025420548510740044,
+      "oof_precision": 0.909556313993174,
+      "oof_recall": 0.9888682745825603,
+      "oof_f1": 0.9475555555555556,
+      "best_params": "{\"C\": 10, \"class_weight\": null, \"gamma\": 1.0}",
+      "threshold": 0.33,
+      "accuracy": 0.9929022082018928,
+      "precision": 0.950354609929078,
+      "recall": 0.9852941176470589,
+      "f1": 0.9675090252707581,
+      "f2": 0.9781021897810219,
+      "roc_auc": 0.999382924547911,
+      "pr_auc": 0.9951489034484565,
+      "brier": 0.006337283146796163,
+      "tn": 1125,
+      "fp": 7,
+      "fn": 2,
+      "tp": 134,
+      "false_positive_rate": 0.006183745583038869,
+      "flagged_share": 0.111198738170347,
+      "precision@0.5": 0.9548872180451128,
+      "recall@0.5": 0.9338235294117647,
+      "f1@0.5": 0.9442379182156134,
+      "selected": false
+    },
+    {
+      "key": "tree",
+      "model": "Decision Tree",
+      "is_baseline": false,
+      "complexity": 2,
+      "cv_pr_auc_mean": 0.9870096484483074,
+      "cv_pr_auc_std": 0.004658522921872503,
+      "oof_precision": 0.9980769230769231,
+      "oof_recall": 0.9628942486085343,
+      "oof_f1": 0.9801699716713881,
+      "best_params": "{\"class_weight\": \"balanced\", \"max_depth\": 6, \"min_samples_leaf\": 5}",
+      "threshold": 0.77,
+      "accuracy": 0.9929022082018928,
+      "precision": 1.0,
+      "recall": 0.9338235294117647,
+      "f1": 0.9657794676806084,
+      "f2": 0.9463487332339792,
+      "roc_auc": 0.991952036998545,
+      "pr_auc": 0.9803732588962737,
+      "brier": 0.009517194340143333,
+      "tn": 1132,
+      "fp": 0,
+      "fn": 9,
+      "tp": 127,
+      "false_positive_rate": 0.0,
+      "flagged_share": 0.10015772870662461,
+      "precision@0.5": 0.8589743589743589,
+      "recall@0.5": 0.9852941176470589,
+      "f1@0.5": 0.9178082191780822,
+      "selected": false
+    },
+    {
+      "key": "logreg",
+      "model": "Logistic Regression",
+      "is_baseline": false,
+      "complexity": 1,
+      "cv_pr_auc_mean": 0.9583207234323636,
+      "cv_pr_auc_std": 0.012428696687482138,
+      "oof_precision": 0.8427672955974843,
+      "oof_recall": 0.9944341372912802,
+      "oof_f1": 0.9123404255319149,
+      "best_params": "{\"C\": 100, \"class_weight\": null}",
+      "threshold": 0.09,
+      "accuracy": 0.9826498422712934,
+      "precision": 0.8701298701298701,
+      "recall": 0.9852941176470589,
+      "f1": 0.9241379310344827,
+      "f2": 0.9598853868194842,
+      "roc_auc": 0.993647370609021,
+      "pr_auc": 0.952817970753574,
+      "brier": 0.017363729234741016,
+      "tn": 1112,
+      "fp": 20,
+      "fn": 2,
+      "tp": 134,
+      "false_positive_rate": 0.0176678445229682,
+      "flagged_share": 0.12145110410094637,
+      "precision@0.5": 0.8888888888888888,
+      "recall@0.5": 0.8235294117647058,
+      "f1@0.5": 0.8549618320610687,
+      "selected": false
+    },
+    {
+      "key": "rule_so",
+      "model": "Baseline: Successive_Outbidding > 0 rule",
+      "is_baseline": true,
+      "complexity": 0,
+      "cv_pr_auc_mean": 0.9032632148363275,
+      "cv_pr_auc_std": 0.024655691045053673,
+      "oof_precision": 0.7991071428571429,
+      "oof_recall": 0.9962894248608535,
+      "oof_f1": 0.8868703550784476,
+      "best_params": "{}",
+      "threshold": 0.5,
+      "accuracy": 0.972397476340694,
+      "precision": 0.7953216374269005,
+      "recall": 1.0,
+      "f1": 0.8859934853420195,
+      "f2": 0.951048951048951,
+      "roc_auc": 0.9934330180835585,
+      "pr_auc": 0.9103789442411733,
+      "brier": 0.017941640378548895,
+      "tn": 1097,
+      "fp": 35,
+      "fn": 0,
+      "tp": 136,
+      "false_positive_rate": 0.030918727915194347,
+      "flagged_share": 0.13485804416403785,
+      "precision@0.5": 0.7953216374269005,
+      "recall@0.5": 1.0,
+      "f1@0.5": 0.8859934853420195,
+      "selected": false
+    },
+    {
+      "key": "dummy",
+      "model": "Baseline: majority class",
+      "is_baseline": true,
+      "complexity": 0,
+      "cv_pr_auc_mean": 0.106670050556404,
+      "cv_pr_auc_std": 0.0005343629336037813,
+      "oof_precision": 0.0,
+      "oof_recall": 0.0,
+      "oof_f1": 0.0,
+      "best_params": "{}",
+      "threshold": 0.5,
+      "accuracy": 0.8927444794952681,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0,
+      "roc_auc": 0.5,
+      "pr_auc": 0.10725552050473186,
+      "brier": 0.09575211747418313,
+      "tn": 1132,
+      "fp": 0,
+      "fn": 136,
+      "tp": 0,
+      "false_positive_rate": 0.0,
+      "flagged_share": 0.0,
+      "precision@0.5": 0.0,
+      "recall@0.5": 0.0,
+      "f1@0.5": 0.0,
+      "selected": false
+    }
+  ],
+  "classification_reports": {
+    "Baseline: majority class": "              precision    recall  f1-score   support\n\n      Normal     0.8927    1.0000    0.9433      1132\n       Shill     0.0000    0.0000    0.0000       136\n\n    accuracy                         0.8927      1268\n   macro avg     0.4464    0.5000    0.4717      1268\nweighted avg     0.7970    0.8927    0.8422      1268\n",
+    "Baseline: Successive_Outbidding > 0 rule": "              precision    recall  f1-score   support\n\n      Normal     1.0000    0.9691    0.9843      1132\n       Shill     0.7953    1.0000    0.8860       136\n\n    accuracy                         0.9724      1268\n   macro avg     0.8977    0.9845    0.9351      1268\nweighted avg     0.9780    0.9724    0.9738      1268\n",
+    "Logistic Regression": "              precision    recall  f1-score   support\n\n      Normal     0.9982    0.9823    0.9902      1132\n       Shill     0.8701    0.9853    0.9241       136\n\n    accuracy                         0.9826      1268\n   macro avg     0.9342    0.9838    0.9572      1268\nweighted avg     0.9845    0.9826    0.9831      1268\n",
+    "Decision Tree": "              precision    recall  f1-score   support\n\n      Normal     0.9921    1.0000    0.9960      1132\n       Shill     1.0000    0.9338    0.9658       136\n\n    accuracy                         0.9929      1268\n   macro avg     0.9961    0.9669    0.9809      1268\nweighted avg     0.9930    0.9929    0.9928      1268\n",
+    "Support Vector Machine (RBF)": "              precision    recall  f1-score   support\n\n      Normal     0.9982    0.9938    0.9960      1132\n       Shill     0.9504    0.9853    0.9675       136\n\n    accuracy                         0.9929      1268\n   macro avg     0.9743    0.9896    0.9818      1268\nweighted avg     0.9931    0.9929    0.9930      1268\n",
+    "Random Forest": "              precision    recall  f1-score   support\n\n      Normal     0.9965    0.9982    0.9974      1132\n       Shill     0.9851    0.9706    0.9778       136\n\n    accuracy                         0.9953      1268\n   macro avg     0.9908    0.9844    0.9876      1268\nweighted avg     0.9953    0.9953    0.9953      1268\n",
+    "Extra Trees": "              precision    recall  f1-score   support\n\n      Normal     0.9965    0.9982    0.9974      1132\n       Shill     0.9851    0.9706    0.9778       136\n\n    accuracy                         0.9953      1268\n   macro avg     0.9908    0.9844    0.9876      1268\nweighted avg     0.9953    0.9953    0.9953      1268\n",
+    "Gradient Boosting": "              precision    recall  f1-score   support\n\n      Normal     0.9956    0.9965    0.9960      1132\n       Shill     0.9704    0.9632    0.9668       136\n\n    accuracy                         0.9929      1268\n   macro avg     0.9830    0.9799    0.9814      1268\nweighted avg     0.9929    0.9929    0.9929      1268\n",
+    "HistGradientBoosting": "              precision    recall  f1-score   support\n\n      Normal     0.9965    0.9982    0.9974      1132\n       Shill     0.9851    0.9706    0.9778       136\n\n    accuracy                         0.9953      1268\n   macro avg     0.9908    0.9844    0.9876      1268\nweighted avg     0.9953    0.9953    0.9953      1268\n"
+  },
+  "bidder_generalisation": {
+    "bidder_id_seen_in_training": {
+      "rows": 1187,
+      "shill": 125,
+      "threshold": 0.5,
+      "accuracy": 0.9983150800336984,
+      "precision": 0.984251968503937,
+      "recall": 1.0,
+      "f1": 0.9920634920634921,
+      "f2": 0.9968102073365231,
+      "roc_auc": 0.9999924670433146,
+      "pr_auc": 0.999936507936508,
+      "brier": 0.0020469437423944583,
+      "tn": 1060,
+      "fp": 2,
+      "fn": 0,
+      "tp": 125,
+      "false_positive_rate": 0.0018832391713747645,
+      "flagged_share": 0.10699241786015164
+    },
+    "bidder_id_unseen": {
+      "rows": 81,
+      "shill": 11,
+      "threshold": 0.5,
+      "accuracy": 0.9506172839506173,
+      "precision": 1.0,
+      "recall": 0.6363636363636364,
+      "f1": 0.7777777777777778,
+      "f2": 0.6862745098039216,
+      "roc_auc": 0.988961038961039,
+      "pr_auc": 0.9415209790209791,
+      "brier": 0.03442222222222222,
+      "tn": 70,
+      "fp": 0,
+      "fn": 4,
+      "tp": 7,
+      "false_positive_rate": 0.0,
+      "flagged_share": 0.08641975308641975
+    }
+  },
+  "global_importance": {
+    "permutation": [
+      {
+        "feature": "Successive_Outbidding",
+        "importance_mean": 0.7613764763620882,
+        "importance_std": 0.021895951359702043
+      },
+      {
+        "feature": "Winning_Ratio",
+        "importance_mean": 0.053561348595926365,
+        "importance_std": 0.01677014186626696
+      },
+      {
+        "feature": "Auction_Duration",
+        "importance_mean": 0.0492974248029988,
+        "importance_std": 0.004717685638604866
+      },
+      {
+        "feature": "Bidder_Tendency",
+        "importance_mean": 0.003541376950235879,
+        "importance_std": 0.0011497436270102273
+      },
+      {
+        "feature": "Last_Bidding",
+        "importance_mean": 0.0009286124578383514,
+        "importance_std": 0.00038758850238859526
+      },
+      {
+        "feature": "Bidding_Ratio",
+        "importance_mean": 0.0006493822077104398,
+        "importance_std": 0.0007063060917876406
+      },
+      {
+        "feature": "Early_Bidding",
+        "importance_mean": 0.0005917172233665872,
+        "importance_std": 0.0002194574170862007
+      },
+      {
+        "feature": "Auction_Bids",
+        "importance_mean": 0.0002298090114995895,
+        "importance_std": 0.0003348671916821777
+      },
+      {
+        "feature": "Starting_Price_Average",
+        "importance_mean": 8.269798191260503e-05,
+        "importance_std": 0.00012815724843777046
+      }
+    ],
+    "native": {
+      "Successive_Outbidding": 0.68608,
+      "Winning_Ratio": 0.16912,
+      "Bidding_Ratio": 0.06204,
+      "Auction_Duration": 0.02797,
+      "Bidder_Tendency": 0.02396,
+      "Auction_Bids": 0.01235,
+      "Starting_Price_Average": 0.00894,
+      "Last_Bidding": 0.0058,
+      "Early_Bidding": 0.00374
+    },
+    "mean_abs_shap": {
+      "Bidder_Tendency": 0.01271,
+      "Bidding_Ratio": 0.02918,
+      "Successive_Outbidding": 0.33104,
+      "Last_Bidding": 0.00561,
+      "Auction_Bids": 0.0055,
+      "Starting_Price_Average": 0.00625,
+      "Early_Bidding": 0.00297,
+      "Winning_Ratio": 0.12455,
+      "Auction_Duration": 0.02866
+    },
+    "explanation_method": "SHAP"
+  },
+  "decision_tree_rules": "|--- Successive_Outbidding <= 0.25\n|   |--- Bidder_Tendency <= 0.94\n|   |   |--- class: 0\n|   |--- Bidder_Tendency >  0.94\n|   |   |--- Early_Bidding <= 0.47\n|   |   |   |--- Auction_Bids <= 0.07\n|   |   |   |   |--- class: 0\n|   |   |   |--- Auction_Bids >  0.07\n|   |   |   |   |--- class: 0\n|   |   |--- Early_Bidding >  0.47\n|   |   |   |--- Bidding_Ratio <= 0.13\n|   |   |   |   |--- Last_Bidding <= 0.76\n|   |   |   |   |   |--- class: 0\n|   |   |   |   |--- Last_Bidding >  0.76\n|   |   |   |   |   |--- class: 0\n|   |   |   |--- Bidding_Ratio >  0.13\n|   |   |   |   |--- class: 1\n|--- Successive_Outbidding >  0.25\n|   |--- Winning_Ratio <= 0.17\n|   |   |--- Bidder_Tendency <= 0.88\n|   |   |   |--- class: 0\n|   |   |--- Bidder_Tendency >  0.88\n|   |   |   |--- class: 1\n|   |--- Winning_Ratio >  0.17\n|   |   |--- Auction_Duration <= 8.50\n|   |   |   |--- Successive_Outbidding <= 0.75\n|   |   |   |   |--- Auction_Duration <= 6.00\n|   |   |   |   |   |--- truncated branch of depth 2\n|   |   |   |   |--- Auction_Duration >  6.00\n|   |   |   |   |   |--- truncated branch of depth 2\n|   |   |   |--- Successive_Outbidding >  0.75\n|   |   |   |   |--- class: 1\n|   |   |--- Auction_Duration >  8.50\n|   |   |   |--- class: 0\n",
+  "figures": [
+    "reports\\figures\\eval_confusion_matrices.png",
+    "reports\\figures\\eval_roc_curves.png",
+    "reports\\figures\\eval_pr_curves.png",
+    "reports\\figures\\eval_model_comparison.png",
+    "reports\\figures\\eval_threshold_optimisation.png",
+    "reports\\figures\\eval_validation_strategy.png",
+    "reports\\figures\\explain_permutation_importance.png",
+    "reports\\figures\\explain_native_importance.png",
+    "reports\\figures\\explain_shap_summary.png"
+  ],
+  "versions": {
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1"
+  }
+}

@@ -1,0 +1,13 @@
+# Tested with Python 3.13 on Windows 11. Pinned to the versions used to produce the reported results.
+pandas==3.1.1
+numpy==2.5.5
+scikit-learn==1.9.1
+scipy                 # installed with scikit-learn; used for Mann-Whitney U tests
+matplotlib==3.11.2
+seaborn==0.13.2
+plotly==7.1.0         # interactive charts in the dashboard
+streamlit==1.67.0
+joblib==1.6.0
+ucimlrepo==0.0.7
+shap==0.54.1
+pytest==9.2.0

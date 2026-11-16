@@ -1,0 +1,403 @@
+{
+  "shape": [
+    6321,
+    13
+  ],
+  "dtypes": {
+    "Record_ID": "int64",
+    "Auction_ID": "int64",
+    "Bidder_ID": "str",
+    "Bidder_Tendency": "float64",
+    "Bidding_Ratio": "float64",
+    "Successive_Outbidding": "float64",
+    "Last_Bidding": "float64",
+    "Auction_Bids": "float64",
+    "Starting_Price_Average": "float64",
+    "Early_Bidding": "float64",
+    "Winning_Ratio": "float64",
+    "Auction_Duration": "float64",
+    "Class": "int64"
+  },
+  "missing_values": {
+    "Record_ID": 0,
+    "Auction_ID": 0,
+    "Bidder_ID": 0,
+    "Bidder_Tendency": 0,
+    "Bidding_Ratio": 0,
+    "Successive_Outbidding": 0,
+    "Last_Bidding": 0,
+    "Auction_Bids": 0,
+    "Starting_Price_Average": 0,
+    "Early_Bidding": 0,
+    "Winning_Ratio": 0,
+    "Auction_Duration": 0,
+    "Class": 0
+  },
+  "total_missing": 0,
+  "duplicate_rows": 0,
+  "duplicate_rows_excluding_record_id": 0,
+  "duplicate_feature_vectors": 3,
+  "conflicting_feature_vectors": 0,
+  "unique_values": {
+    "Record_ID": 6321,
+    "Auction_ID": 807,
+    "Bidder_ID": 1054,
+    "Bidder_Tendency": 489,
+    "Bidding_Ratio": 400,
+    "Successive_Outbidding": 3,
+    "Last_Bidding": 5807,
+    "Auction_Bids": 49,
+    "Starting_Price_Average": 22,
+    "Early_Bidding": 5690,
+    "Winning_Ratio": 72,
+    "Auction_Duration": 5,
+    "Class": 2
+  },
+  "describe": {
+    "Bidder_Tendency": {
+      "count": 6321.0,
+      "mean": 0.1425,
+      "std": 0.1971,
+      "min": 0.0,
+      "25%": 0.027,
+      "50%": 0.0625,
+      "75%": 0.1667,
+      "max": 1.0
+    },
+    "Bidding_Ratio": {
+      "count": 6321.0,
+      "mean": 0.1277,
+      "std": 0.1315,
+      "min": 0.0118,
+      "25%": 0.0435,
+      "50%": 0.0833,
+      "75%": 0.1667,
+      "max": 1.0
+    },
+    "Successive_Outbidding": {
+      "count": 6321.0,
+      "mean": 0.1038,
+      "std": 0.2797,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.0,
+      "max": 1.0
+    },
+    "Last_Bidding": {
+      "count": 6321.0,
+      "mean": 0.4631,
+      "std": 0.3801,
+      "min": 0.0,
+      "25%": 0.0479,
+      "50%": 0.4409,
+      "75%": 0.8604,
+      "max": 0.9999
+    },
+    "Auction_Bids": {
+      "count": 6321.0,
+      "mean": 0.2316,
+      "std": 0.2553,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.1429,
+      "75%": 0.4545,
+      "max": 0.7882
+    },
+    "Starting_Price_Average": {
+      "count": 6321.0,
+      "mean": 0.4728,
+      "std": 0.4899,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.9936,
+      "max": 0.9999
+    },
+    "Early_Bidding": {
+      "count": 6321.0,
+      "mean": 0.4307,
+      "std": 0.3808,
+      "min": 0.0,
+      "25%": 0.0266,
+      "50%": 0.3601,
+      "75%": 0.8268,
+      "max": 0.9999
+    },
+    "Winning_Ratio": {
+      "count": 6321.0,
+      "mean": 0.3677,
+      "std": 0.4366,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.8519,
+      "max": 1.0
+    },
+    "Auction_Duration": {
+      "count": 6321.0,
+      "mean": 4.6151,
+      "std": 2.4666,
+      "min": 1.0,
+      "25%": 3.0,
+      "50%": 5.0,
+      "75%": 7.0,
+      "max": 10.0
+    }
+  },
+  "class_counts": {
+    "0": 5646,
+    "1": 675
+  },
+  "class_share": {
+    "0": 0.8932130991931656,
+    "1": 0.10678690080683437
+  },
+  "imbalance_ratio": 8.364444444444445,
+  "spearman_with_target": {
+    "Bidder_Tendency": 0.3031,
+    "Bidding_Ratio": 0.4478,
+    "Successive_Outbidding": 0.8915,
+    "Last_Bidding": 0.1011,
+    "Auction_Bids": 0.0515,
+    "Starting_Price_Average": 0.041,
+    "Early_Bidding": 0.0545,
+    "Winning_Ratio": 0.3849,
+    "Auction_Duration": 0.0285
+  },
+  "pearson_with_target": {
+    "Bidder_Tendency": 0.2955,
+    "Bidding_Ratio": 0.5694,
+    "Successive_Outbidding": 0.901,
+    "Last_Bidding": 0.0977,
+    "Auction_Bids": 0.045,
+    "Starting_Price_Average": 0.0426,
+    "Early_Bidding": 0.0536,
+    "Winning_Ratio": 0.3941,
+    "Auction_Duration": 0.0211
+  },
+  "correlated_pairs": [
+    {
+      "feature_a": "Bidding_Ratio",
+      "feature_b": "Winning_Ratio",
+      "abs_spearman": 0.803
+    },
+    {
+      "feature_a": "Last_Bidding",
+      "feature_b": "Early_Bidding",
+      "abs_spearman": 0.9532
+    }
+  ],
+  "last_equals_early_share": 0.6138269261192849,
+  "successive_outbidding_crosstab": {
+    "0.0": {
+      "0": 5476,
+      "1": 2
+    },
+    "0.5": {
+      "0": 152,
+      "1": 222
+    },
+    "1.0": {
+      "0": 18,
+      "1": 451
+    }
+  },
+  "mutual_information_full_data": {
+    "Successive_Outbidding": 0.2849,
+    "Bidding_Ratio": 0.18,
+    "Bidder_Tendency": 0.128,
+    "Winning_Ratio": 0.0991,
+    "Last_Bidding": 0.0125,
+    "Auction_Duration": 0.0052,
+    "Early_Bidding": 0.0036,
+    "Auction_Bids": 0.0009,
+    "Starting_Price_Average": 0.0
+  },
+  "class_difference_tests": [
+    {
+      "feature": "Successive_Outbidding",
+      "mean_normal": 0.016649,
+      "mean_shill": 0.832593,
+      "median_normal": 0.0,
+      "median_shill": 1.0,
+      "mann_whitney_p": 0.0,
+      "rank_biserial": 0.983866
+    },
+    {
+      "feature": "Bidding_Ratio",
+      "mean_normal": 0.101775,
+      "mean_shill": 0.344268,
+      "median_normal": 0.071429,
+      "median_shill": 0.294118,
+      "mann_whitney_p": 0.0,
+      "rank_biserial": 0.837053
+    },
+    {
+      "feature": "Winning_Ratio",
+      "mean_normal": 0.308242,
+      "mean_shill": 0.865322,
+      "median_normal": 0.0,
+      "median_shill": 0.884615,
+      "mann_whitney_p": 0.0,
+      "rank_biserial": 0.646229
+    },
+    {
+      "feature": "Bidder_Tendency",
+      "mean_normal": 0.122403,
+      "mean_shill": 0.310979,
+      "median_normal": 0.055556,
+      "median_shill": 0.225806,
+      "mann_whitney_p": 0.0,
+      "rank_biserial": 0.566497
+    },
+    {
+      "feature": "Last_Bidding",
+      "mean_normal": 0.450286,
+      "mean_shill": 0.570463,
+      "median_normal": 0.410174,
+      "median_shill": 0.66483,
+      "mann_whitney_p": 0.0,
+      "rank_biserial": 0.189063
+    },
+    {
+      "feature": "Early_Bidding",
+      "mean_normal": 0.42363,
+      "mean_shill": 0.489674,
+      "median_normal": 0.339707,
+      "median_shill": 0.541917,
+      "mann_whitney_p": 1.5e-05,
+      "rank_biserial": 0.101943
+    },
+    {
+      "feature": "Auction_Bids",
+      "mean_normal": 0.227638,
+      "mean_shill": 0.264797,
+      "median_normal": 0.1,
+      "median_shill": 0.25,
+      "mann_whitney_p": 4.3e-05,
+      "rank_biserial": 0.091815
+    },
+    {
+      "feature": "Starting_Price_Average",
+      "mean_normal": 0.465605,
+      "mean_shill": 0.533181,
+      "median_normal": 0.0,
+      "median_shill": 0.961233,
+      "mann_whitney_p": 0.001105,
+      "rank_biserial": 0.070112
+    },
+    {
+      "feature": "Auction_Duration",
+      "mean_normal": 4.59706,
+      "mean_shill": 4.765926,
+      "median_normal": 5.0,
+      "median_shill": 5.0,
+      "mann_whitney_p": 0.023551,
+      "rank_biserial": 0.051049
+    }
+  ],
+  "group_structure": {
+    "n_auctions": 807,
+    "n_bidder_ids": 1054,
+    "records_per_auction": {
+      "count": 807.0,
+      "mean": 7.83,
+      "std": 4.39,
+      "min": 1.0,
+      "25%": 5.0,
+      "50%": 7.0,
+      "75%": 10.0,
+      "max": 26.0
+    },
+    "records_per_bidder_id": {
+      "count": 1054.0,
+      "mean": 6.0,
+      "std": 8.26,
+      "min": 1.0,
+      "25%": 1.0,
+      "50%": 3.0,
+      "75%": 7.0,
+      "max": 112.0
+    },
+    "auctions_with_shill": 478,
+    "auctions_mixed_classes": 472,
+    "bidder_ids_with_shill": 386,
+    "bidder_ids_mixed_classes": 359,
+    "auction_feature_constant_within_auction": {
+      "Auction_Bids": 1.0,
+      "Starting_Price_Average": 1.0,
+      "Auction_Duration": 1.0
+    },
+    "bidder_feature_constant_within_bidder_id": {
+      "Bidder_Tendency": 0.13496143958868895,
+      "Winning_Ratio": 0.18637532133676094
+    },
+    "masked_bidder_id_example": "_***i"
+  },
+  "leakage_assessment": [
+    {
+      "feature": "Bidder_Tendency",
+      "measured_at": "bidder (across auctions)",
+      "available_at": "history of the bidder across sellers",
+      "comment": "Available from bidder history; aggregated over the bidder's auctions."
+    },
+    {
+      "feature": "Bidding_Ratio",
+      "measured_at": "bidder within auction",
+      "available_at": "auction in progress / ended",
+      "comment": "Ratio of the bidder's bids to all bids in the auction; final value only known when the auction ends."
+    },
+    {
+      "feature": "Successive_Outbidding",
+      "measured_at": "bidder within auction",
+      "available_at": "auction in progress",
+      "comment": "Observable as bids arrive; final value known only at the end."
+    },
+    {
+      "feature": "Last_Bidding",
+      "measured_at": "bidder within auction",
+      "available_at": "auction ended",
+      "comment": "Time of the bidder's last bid relative to auction end - requires the auction to be finished."
+    },
+    {
+      "feature": "Auction_Bids",
+      "measured_at": "auction",
+      "available_at": "auction ended",
+      "comment": "Total bids in the auction relative to concurrent auctions - requires the auction to be finished."
+    },
+    {
+      "feature": "Starting_Price_Average",
+      "measured_at": "auction",
+      "available_at": "auction start",
+      "comment": "Known when the auction is listed."
+    },
+    {
+      "feature": "Early_Bidding",
+      "measured_at": "bidder within auction",
+      "available_at": "early in auction",
+      "comment": "Time of the bidder's first bid; available once the bidder has bid."
+    },
+    {
+      "feature": "Winning_Ratio",
+      "measured_at": "bidder (across auctions)",
+      "available_at": "auction outcomes",
+      "comment": "Proportion of the bidder's auctions won - depends on auction outcomes, i.e. post-auction information."
+    },
+    {
+      "feature": "Auction_Duration",
+      "measured_at": "auction",
+      "available_at": "auction start",
+      "comment": "Duration set by the seller at listing time."
+    }
+  ],
+  "figures": [
+    "reports\\figures\\eda_class_distribution.png",
+    "reports\\figures\\eda_feature_distributions.png",
+    "reports\\figures\\eda_boxplots_by_class.png",
+    "reports\\figures\\eda_correlation_heatmap.png",
+    "reports\\figures\\eda_successive_outbidding.png",
+    "reports\\figures\\eda_group_structure.png",
+    "reports\\figures\\eda_bidding_vs_winning.png"
+  ]
+}
